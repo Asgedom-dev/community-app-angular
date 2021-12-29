@@ -1,0 +1,41 @@
+<div *ngFor="let provider of typesResult" >
+  
+  <div class="card-body">
+    <h5 class="card-title">{{provider.title}}</h5>
+    <p class="card-text">{{provider.description}}</p>
+    <h6>{{provider.created_at | date: "short" }}</h6>
+<form [formGroup]="commentForm_" (ngSubmit)="postComments(provider._id)">
+    <div class="input-group mb-3">
+      <input formControlName="comments" type="text" class="form-control" placeholder="comment" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        
+        <button class="btn btn-outline-secondary"  type="submit" id="post">Post</button>
+      </div>
+    </div>
+</form>
+    
+    <div class="card-body" *ngFor="let c of provider.comment">
+      <h5 class="card-title">{{ c.comment}}</h5>
+      <p id="cancel" class="card-text">{{c.created_at | date: "short"}}</p>
+      <p>{{c.user}}</p>
+    </div> 
+  
+  </div>
+  
+</div> 
+
+<!-- <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav> -->
