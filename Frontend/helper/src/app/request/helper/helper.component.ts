@@ -46,9 +46,6 @@ export class HelperComponent implements OnInit {
       console.log(params.get('types'))
       this.paramreturn = params.get('types') as string 
       this.sub= this.requestService.getByTypes(this.paramreturn).subscribe((u: any) => {
-        let ref = document.getElementById('post')
-        ref?.click()
-        
         this.typesResult=u.getHelper
         console.log(this.typesResult)
            });
